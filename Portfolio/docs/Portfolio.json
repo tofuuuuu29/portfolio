@@ -1,0 +1,412 @@
+{
+  "v": 12,
+  "name": "Portfolio",
+  "folders": [
+    {
+      "v": 12,
+      "name": "account",
+      "folders": [],
+      "requests": [
+        {
+          "v": "17",
+          "name": "login",
+          "method": "POST",
+          "endpoint": "<<BASE_URL>>account/login/",
+          "params": [],
+          "headers": [],
+          "preRequestScript": "",
+          "testScript": "",
+          "auth": {
+            "authType": "none",
+            "authActive": true
+          },
+          "body": {
+            "contentType": "application/json",
+            "body": "{\n  \"username\": \"admin\",\n  \"password\": \"<your ADMIN_PASSWORD>\"\n}"
+          },
+          "requestVariables": [],
+          "responses": {},
+          "description": null
+        },
+        {
+          "v": "17",
+          "name": "me",
+          "method": "GET",
+          "endpoint": "<<BASE_URL>>account/me/",
+          "params": [],
+          "headers": [],
+          "preRequestScript": "",
+          "testScript": "",
+          "auth": {
+            "authType": "bearer",
+            "token": "<<TOKEN>>",
+            "authActive": true
+          },
+          "body": {
+            "contentType": null,
+            "body": null
+          },
+          "requestVariables": [],
+          "responses": {},
+          "description": null
+        }
+      ],
+      "auth": {
+        "authType": "inherit",
+        "authActive": true
+      },
+      "headers": [],
+      "variables": []
+    },
+    {
+      "v": 12,
+      "name": "project",
+      "folders": [],
+      "requests": [
+        {
+          "v": "17",
+          "name": "get all",
+          "method": "GET",
+          "endpoint": "<<BASE_URL>>project/",
+          "params": [],
+          "headers": [],
+          "preRequestScript": "",
+          "testScript": "",
+          "auth": {
+            "authType": "none",
+            "authActive": true
+          },
+          "body": {
+            "contentType": null,
+            "body": null
+          },
+          "requestVariables": [],
+          "responses": {},
+          "description": null
+        },
+        {
+          "v": "17",
+          "name": "get by id",
+          "method": "GET",
+          "endpoint": "<<BASE_URL>>project/1/",
+          "params": [],
+          "headers": [],
+          "preRequestScript": "",
+          "testScript": "",
+          "auth": {
+            "authType": "none",
+            "authActive": true
+          },
+          "body": {
+            "contentType": null,
+            "body": null
+          },
+          "requestVariables": [],
+          "responses": {},
+          "description": null
+        },
+        {
+          "v": "17",
+          "name": "create",
+          "method": "POST",
+          "endpoint": "<<BASE_URL>>project/",
+          "params": [],
+          "headers": [],
+          "preRequestScript": "",
+          "testScript": "",
+          "auth": {
+            "authType": "bearer",
+            "token": "<<TOKEN>>",
+            "authActive": true
+          },
+          "body": {
+            "contentType": "application/json",
+            "body": "{\n  \"title\": \"My Project\",\n  \"description\": \"What it does.\",\n  \"techStack\": \"Kotlin, Vue\",\n  \"repoUrl\": \"https://github.com/you/repo\",\n  \"liveUrl\": \"\",\n  \"imageUrl\": \"\",\n  \"featured\": true\n}"
+          },
+          "requestVariables": [],
+          "responses": {},
+          "description": null
+        },
+        {
+          "v": "17",
+          "name": "update",
+          "method": "PUT",
+          "endpoint": "<<BASE_URL>>project/1/",
+          "params": [],
+          "headers": [],
+          "preRequestScript": "",
+          "testScript": "",
+          "auth": {
+            "authType": "bearer",
+            "token": "<<TOKEN>>",
+            "authActive": true
+          },
+          "body": {
+            "contentType": "application/json",
+            "body": "{\n  \"title\": \"Updated title\",\n  \"description\": \"What it does.\",\n  \"techStack\": \"Kotlin, Vue\",\n  \"repoUrl\": \"https://github.com/you/repo\",\n  \"liveUrl\": \"\",\n  \"imageUrl\": \"\",\n  \"featured\": true\n}"
+          },
+          "requestVariables": [],
+          "responses": {},
+          "description": null
+        },
+        {
+          "v": "17",
+          "name": "delete",
+          "method": "DELETE",
+          "endpoint": "<<BASE_URL>>project/1/",
+          "params": [],
+          "headers": [],
+          "preRequestScript": "",
+          "testScript": "",
+          "auth": {
+            "authType": "bearer",
+            "token": "<<TOKEN>>",
+            "authActive": true
+          },
+          "body": {
+            "contentType": null,
+            "body": null
+          },
+          "requestVariables": [],
+          "responses": {},
+          "description": null
+        },
+        {
+          "v": "17",
+          "name": "batch",
+          "method": "POST",
+          "endpoint": "<<BASE_URL>>project/batch/",
+          "params": [],
+          "headers": [],
+          "preRequestScript": "",
+          "testScript": "",
+          "auth": {
+            "authType": "bearer",
+            "token": "<<TOKEN>>",
+            "authActive": true
+          },
+          "body": {
+            "contentType": "application/json",
+            "body": "[\n  {\n    \"title\": \"My Project\",\n    \"description\": \"What it does.\",\n    \"techStack\": \"Kotlin, Vue\",\n    \"repoUrl\": \"https://github.com/you/repo\",\n    \"liveUrl\": \"\",\n    \"imageUrl\": \"\",\n    \"featured\": true\n  }\n]"
+          },
+          "requestVariables": [],
+          "responses": {},
+          "description": null
+        }
+      ],
+      "auth": {
+        "authType": "inherit",
+        "authActive": true
+      },
+      "headers": [],
+      "variables": []
+    },
+    {
+      "v": 12,
+      "name": "skill",
+      "folders": [],
+      "requests": [
+        {
+          "v": "17",
+          "name": "get all",
+          "method": "GET",
+          "endpoint": "<<BASE_URL>>skill/",
+          "params": [],
+          "headers": [],
+          "preRequestScript": "",
+          "testScript": "",
+          "auth": {
+            "authType": "none",
+            "authActive": true
+          },
+          "body": {
+            "contentType": null,
+            "body": null
+          },
+          "requestVariables": [],
+          "responses": {},
+          "description": null
+        },
+        {
+          "v": "17",
+          "name": "create",
+          "method": "POST",
+          "endpoint": "<<BASE_URL>>skill/",
+          "params": [],
+          "headers": [],
+          "preRequestScript": "",
+          "testScript": "",
+          "auth": {
+            "authType": "bearer",
+            "token": "<<TOKEN>>",
+            "authActive": true
+          },
+          "body": {
+            "contentType": "application/json",
+            "body": "{\n  \"name\": \"Kotlin\",\n  \"category\": \"Backend\"\n}"
+          },
+          "requestVariables": [],
+          "responses": {},
+          "description": null
+        },
+        {
+          "v": "17",
+          "name": "update",
+          "method": "PUT",
+          "endpoint": "<<BASE_URL>>skill/1/",
+          "params": [],
+          "headers": [],
+          "preRequestScript": "",
+          "testScript": "",
+          "auth": {
+            "authType": "bearer",
+            "token": "<<TOKEN>>",
+            "authActive": true
+          },
+          "body": {
+            "contentType": "application/json",
+            "body": "{\n  \"name\": \"Kotlin\",\n  \"category\": \"Mobile\"\n}"
+          },
+          "requestVariables": [],
+          "responses": {},
+          "description": null
+        },
+        {
+          "v": "17",
+          "name": "delete",
+          "method": "DELETE",
+          "endpoint": "<<BASE_URL>>skill/1/",
+          "params": [],
+          "headers": [],
+          "preRequestScript": "",
+          "testScript": "",
+          "auth": {
+            "authType": "bearer",
+            "token": "<<TOKEN>>",
+            "authActive": true
+          },
+          "body": {
+            "contentType": null,
+            "body": null
+          },
+          "requestVariables": [],
+          "responses": {},
+          "description": null
+        },
+        {
+          "v": "17",
+          "name": "batch",
+          "method": "POST",
+          "endpoint": "<<BASE_URL>>skill/batch/",
+          "params": [],
+          "headers": [],
+          "preRequestScript": "",
+          "testScript": "",
+          "auth": {
+            "authType": "bearer",
+            "token": "<<TOKEN>>",
+            "authActive": true
+          },
+          "body": {
+            "contentType": "application/json",
+            "body": "[\n  {\n    \"name\": \"Vue\",\n    \"category\": \"Frontend\"\n  },\n  {\n    \"name\": \"PostgreSQL\",\n    \"category\": \"Backend\"\n  }\n]"
+          },
+          "requestVariables": [],
+          "responses": {},
+          "description": null
+        }
+      ],
+      "auth": {
+        "authType": "inherit",
+        "authActive": true
+      },
+      "headers": [],
+      "variables": []
+    },
+    {
+      "v": 12,
+      "name": "message",
+      "folders": [],
+      "requests": [
+        {
+          "v": "17",
+          "name": "send (public)",
+          "method": "POST",
+          "endpoint": "<<BASE_URL>>message/",
+          "params": [],
+          "headers": [],
+          "preRequestScript": "",
+          "testScript": "",
+          "auth": {
+            "authType": "none",
+            "authActive": true
+          },
+          "body": {
+            "contentType": "application/json",
+            "body": "{\n  \"name\": \"Jane\",\n  \"email\": \"jane@example.com\",\n  \"content\": \"Hello!\"\n}"
+          },
+          "requestVariables": [],
+          "responses": {},
+          "description": null
+        },
+        {
+          "v": "17",
+          "name": "get all",
+          "method": "GET",
+          "endpoint": "<<BASE_URL>>message/",
+          "params": [],
+          "headers": [],
+          "preRequestScript": "",
+          "testScript": "",
+          "auth": {
+            "authType": "bearer",
+            "token": "<<TOKEN>>",
+            "authActive": true
+          },
+          "body": {
+            "contentType": null,
+            "body": null
+          },
+          "requestVariables": [],
+          "responses": {},
+          "description": null
+        },
+        {
+          "v": "17",
+          "name": "delete",
+          "method": "DELETE",
+          "endpoint": "<<BASE_URL>>message/1/",
+          "params": [],
+          "headers": [],
+          "preRequestScript": "",
+          "testScript": "",
+          "auth": {
+            "authType": "bearer",
+            "token": "<<TOKEN>>",
+            "authActive": true
+          },
+          "body": {
+            "contentType": null,
+            "body": null
+          },
+          "requestVariables": [],
+          "responses": {},
+          "description": null
+        }
+      ],
+      "auth": {
+        "authType": "inherit",
+        "authActive": true
+      },
+      "headers": [],
+      "variables": []
+    }
+  ],
+  "requests": [],
+  "auth": {
+    "authType": "none",
+    "authActive": true
+  },
+  "headers": [],
+  "variables": []
+}
