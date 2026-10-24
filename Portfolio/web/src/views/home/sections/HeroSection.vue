@@ -26,7 +26,10 @@ const toggleFullscreen = () => {
 </script>
 
 <template>
-	<section class="relative -mt-16 flex h-screen min-h-[560px] items-center justify-between overflow-hidden">
+	<!-- phones: stacked (logo on top, text below). md and up: side by side, as before -->
+	<section
+		class="relative -mt-16 flex min-h-screen flex-col justify-center overflow-hidden pb-24 pt-20
+			   md:h-screen md:min-h-[560px] md:flex-row md:items-center md:justify-between md:py-0">
 		<div class="relative z-10 px-[8%]">
 			<h1 class="sr-only">{{ site.name }}</h1>
 
@@ -52,9 +55,9 @@ const toggleFullscreen = () => {
 			</div>
 		</div>
 
-		<!-- electric CG logo (right side). On phones it sits faded behind the text. -->
-		<div class="pointer-events-none absolute right-[-25%] top-1/2 z-0 h-[55vh] w-[110vw] -translate-y-1/2 opacity-30
-					md:pointer-events-auto md:static md:z-10 md:mr-[3%] md:h-[70vh] md:w-[48vw] md:translate-y-0 md:opacity-100"
+		<!-- electric CG logo: above the text on phones, on the right on desktop -->
+		<div class="relative order-first h-[32vh] min-h-[190px] w-full
+					md:order-none md:z-10 md:mr-[3%] md:h-[70vh] md:w-[48vw]"
 			 role="img" aria-label="CG logo">
 			<ElectricLogo src="/cg-silhouette.png" :color="boltCore" :glowColor="boltGlow"
 						  :scale="0.78" :intensity="1" :glow="1" :thickness="1.5" :strands="4" :bend="0.6"
