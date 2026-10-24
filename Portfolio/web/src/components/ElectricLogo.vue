@@ -5,13 +5,17 @@ import { onBeforeUnmount, onMounted, ref, watch } from 'vue';
 const BOLT = `data:image/svg+xml;charset=utf-8,${encodeURIComponent(
   '<svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 64 64"><path d="M39 3 12 37h17l-4 24 27-34H35z" fill="#fff"/></svg>'
 )}`;
-const RASTER = 560;
+// lighter rendering on phones and touch screens
+const LITE =
+  typeof window !== 'undefined' && (window.matchMedia?.('(max-width: 768px), (pointer: coarse)').matches ?? false);
+const RASTER = LITE ? 360 : 560;
 const CELL = 4;
 const FAR = 1e20;
 const ARCS = 5;
 const PULSES = 3;
-const PIXEL_BUDGET = 1.2e6;
-const MAX_DPR = 1.5;
+const PIXEL_BUDGET = LITE ? 0.45e6 : 1.2e6;
+const MAX_DPR = LITE ? 1 : 1.5;
+const MIN_FRAME_MS = LITE ? 33 : 0; // about 30 fps on mobile
 
 type Rgb = [number, number, number];
 
@@ -912,6 +916,10 @@ const mountScene = () => {
 
   const frame = (now: number) => {
     raf = 0;
+    if (MIN_FRAME_MS && now - last < MIN_FRAME_MS) {
+      if (visible) raf = requestAnimationFrame(frame);
+      return;
+    }
     const s = settings;
     const dt = Math.min(0.05, Math.max(0, (now - last) / 1000));
     last = now;
@@ -1050,7 +1058,7 @@ const mountScene = () => {
       uniforms.uIntensity.value = s.intensity;
       uniforms.uGlow.value = s.glow;
       uniforms.uThickness.value = s.thickness;
-      uniforms.uStrands.value = Math.max(1, Math.min(6, Math.round(s.strands)));
+      uniforms.uStrands.value = Math.max(1, Math.min(LITE ? 2 : 6, Math.round(s.strands)));
       uniforms.uBend.value = s.bend;
       uniforms.uCrackle.value = s.crackle;
       uniforms.uFlicker.value = reducedMotion ? 0 : s.flicker;
